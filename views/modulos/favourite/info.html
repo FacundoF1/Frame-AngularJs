@@ -1,0 +1,53 @@
+<!-- Lanzamos metodo correspondiente para mostrar datos ng-repeat / {{ tabla.campo }} -->
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <form action="" class="search-form">
+            <div class="form-group has-feedback">
+        		<label for="search" class="sr-only">Buscar</label>
+        		<input type="text" class="form-control" name="search" id="search"  ng-model="buscador"  ng-show="usuarios.length > 0" placeholder="buscar por * id *...">
+          		<span class="glyphicon glyphicon-search form-control-feedback"></span>
+        	</div>
+        </form>
+    </div>
+</div>
+
+<div class="row">
+	<div class="col-md-8 col-md-offset-2">
+		<div class="panel panel-default">	
+			<div class="panel-heading">
+				<h3><i class="fa fa-heart"></i> Favoritos</h3>
+			</div><!--end panel-heading -->
+			<div class="panel-body table table-responsive">
+				<table class="table table-striped">
+				    <thead>
+			      <tr>
+			        <th><i class="fa fa-info-circle"> </i> Id</th>
+			        <th><i class="fa fa-user"> </i> Nombre</th>
+			        <th><i class="fa fa-info-circle"> </i> Id Favorito</th>
+			        <th><i class="fa fa-user"> </i> Nombre Favorito</th>
+			        <th><i class="fa fa-edit"> </i> Editar</th>
+			        <th><i class="fa fa-trash"> </i> Eliminar</th>
+			      </tr>
+			    </thead>
+			    <tbody ng-repeat="favorito in favoritos | filter:{ idUsuario: usuario.idUsuario}:true | filter: buscador">
+			      <tr>
+			        <td>{{favorito.idUsuario}}</td>
+			        <td>{{(usuarios | filter : {idUsuario: favorito.idUsuario})[0].nombre }}</td>
+			        <td>{{favorito.idUsuarioFav}}</td>
+			        <td>{{(usuarios | filter : {idUsuario: favorito.idUsuarioFav})[0].nombre }}</td>
+			        <td><a href="#/favourite/edit/{{favorito.idFav}}" class="button success"> <i class="fa fa-edit"> </i> </a></td>
+			        <td><a href="#/favourite/remove/{{favorito.idFav}}" class="button alert"> <i class="fa fa-trash"> </i> </a></td>
+			      </tr>
+			    </tbody>
+				</table>
+
+			</div><!--end panel-body -->
+			<div class="panel-footer">
+				<p class="text-center">Acepto los<strong> Terminos & Condiciones</strong>.</p>
+      			<p><a href="#/" class="button large-12 success"><i class="fa fa-home"></i> Volver al inicio</a></p>
+			</div><!--end footer -->
+			
+		</div><!--end panel -->
+	</div><!--end col-md-3 -->
+
+</div>	<!-- end Row tablas -->

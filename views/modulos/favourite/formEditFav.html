@@ -1,0 +1,29 @@
+<!-- Lanzamos metodo correspondiente para añadir datos ng-model {{ tabla.campo }} -->
+<div class="row">
+  <br><br><br>
+  <div class="col-md-4 col-md-offset-4">
+    <div class="box">
+      
+      <div class="panel-heading"> 
+       <label class="pull-right"><i class="fa fa-user"></i> Favorito de {{(usuarios | filter : {idUsuario: favorito.idUsuario})[0].nombre }} </label>
+       <h4> {{ textButton }} </h4>
+      </div><!-- end panel-heading -->
+      
+      <form role="form">
+              <div class="divider-form"></div>
+              <label for="">Elegir una opción: </label>
+              <div class="form-group">
+                <select name="selectFav" ng-model="favorito.idUsuarioFav" class="selectpicker" data-live-search="true" required>
+                  <option data-tokens="{{ usuario.idUsuario }}" ng-repeat="usuario in usuarios " value="{{ usuario.idUsuario }}" required>{{ usuario.nombre }}</option>
+                </select>
+              </div>
+
+              <div class="divider-form"></div>
+              <p><a href="#/" class="button large-12 success"><i class="fa fa-home"></i> Volver al inicio</a></p>
+              <button type="submit" class="btn-block btn btn-lg btn-primary">{{ textButton }}</button>
+              
+      </form>
+    
+    </div>
+  </div>
+</div>

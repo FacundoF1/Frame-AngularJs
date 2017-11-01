@@ -1,0 +1,113 @@
+<div class="row">
+	<div class="alert alert-danger" ng-show="usuarios.length == 0">
+		<h2 class="">No hay usuarios para mostrar</h2>
+	</div>
+</div>
+
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <form action="" class="search-form">
+            <div class="form-group has-feedback">
+        		<label for="search" class="sr-only">Buscar</label>
+        		<input type="text" class="form-control" name="search" id="search"  ng-model="buscador"  ng-show="usuarios.length > 0" placeholder="buscar...">
+          		<span class="glyphicon glyphicon-search form-control-feedback"></span>
+        	</div>
+        </form>
+    </div>
+</div>
+
+<div class="row">
+	<div class="col-md-4">
+		<div class="panel panel-default">	
+			<div class="panel-heading">
+				<h3><i class="fa fa-users"></i> Usuarios</h3>
+			</div><!--end panel-heading -->
+			<div class="panel-body table table-responsive">
+				<table class="table table-striped">
+				    <thead>
+				      <tr>
+				      	<th><i class="fa fa-info-circle"> </i> Id</th>
+				        <th><i class="fa fa-user"> </i> Nombre</th>
+				        <th><i class="fa fa-calendar"> </i> Edad</th>
+				        <th><i class="fa fa-key"> </i> Clave</th>
+				        <th><i class="fa fa-eye"> </i> Ver</th>
+				        <th><i class="fa fa-edit"> </i> Editar</th>
+				        <th><i class="fa fa-trash"> </i> Eliminar</th>
+				      </tr>
+				    </thead>
+				    <tbody ng-repeat="usuario in usuarios | filter: buscador">
+				      <tr >
+				        <td>{{usuario.idUsuario}}</td>
+				        <td>{{usuario.nombre}}</td>
+				        <td>{{usuario.edad}}</td>
+						<td>{{usuario.clave}}</td>
+				        <td><a href="#/user/info/{{usuario.idUsuario}}" class="large-12  button expand"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
+				        <td><a href="#/user/edit/{{usuario.idUsuario}}" class="button success"><i class="fa fa-edit" aria-hidden="true"></i></a></td>
+				        <td><a href="#/user/remove/{{usuario.idUsuario}}" class="button alert"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+				      </tr>
+				    </tbody>
+				</table>
+			</div><!--end panel-body -->
+			
+		</div><!--end panel -->	
+	</div><!--end col-md-5 -->
+	
+	<div class="col-md-4">
+		<div class="panel panel-default">	
+			<div class="panel-heading">
+				<h3><i class="fa fa-heart"></i> Favoritos</h3>
+			</div><!--end panel-heading -->
+			<div class="panel-body table table-responsive">
+				<table class="table table-striped">
+				    <thead>
+				      <tr>
+				      	<th><i class="fa fa-info-circle"> </i> Id</th>
+				        <th><i class="fa fa-user"> </i> Nombre</th>
+				        <th><i class="fa fa-eye"> </i> Ver</th>
+				        <th><i class="fa fa-plus-circle"> </i> Nuevo</th>
+				      </tr>
+				    </thead>
+				    <tbody ng-repeat="usuario in usuarios | filter: buscador">
+				      <tr>
+				        <td>{{usuario.idUsuario}}</td>
+				        <td>{{usuario.nombre}}</td>
+				        <td><a href="#/favourite/info/{{usuario.idUsuario}}"> <i class="fa fa-eye" aria-hidden="true"></i> </a></td>
+				        <td><a href="#/favourite/add/{{usuario.idUsuario}}"> <i class="fa fa-plus-circle" aria-hidden="true"></i> </a></td>
+				      </tr>
+				    </tbody>
+				</table>
+			</div><!--end panel-body -->
+			
+		</div><!--end panel -->
+	</div><!--end col-md-3 -->
+
+	<div class="col-md-4">
+		<div class="panel panel-default">	
+			<div class="panel-heading">
+				<h3><i class="fa fa-money"></i> Pagos</h3>
+			</div><!--end panel-heading -->
+			<div class="panel-body table table-responsive">
+				<table class="table table-striped" >
+				    <thead>
+				      <tr>
+				      	<th><i class="fa fa-info-circle"> </i> Id</th>
+				        <th><i class="fa fa-user"> </i> Nombre</th>
+				        <th><i class="fa fa-eye"> </i> Ver</th>
+				        <th><i class="fa fa-plus-circle"> </i> Nuevo</th>
+				      </tr>
+				    </thead>
+				    <tbody ng-repeat="usuario in usuarios | filter: buscador">
+				      <tr>
+				        <td>{{usuario.idUsuario}}</td>
+				        <td>{{usuario.nombre}}</td>
+				        <td><a href="#/payment/info/{{usuario.idUsuario}}"> <i class="fa fa-eye" aria-hidden="true"></i> </a></td>
+				        <td><a href="#/payment/add/{{usuario.idUsuario}}"> <i class="fa fa-plus-circle" aria-hidden="true"></i> </a></td>
+				      </tr>
+				    </tbody>
+				</table>
+			</div><!--end panel-body -->
+		</div><!--end panel -->
+	</div><!--end col-md-3 -->
+
+</div>	<!-- end Row tablas -->
+

@@ -1,0 +1,30 @@
+html,body{
+	margin: 0px;
+	height: 100%;
+}
+.jumbotron{
+	margin-bottom: 0px;
+}
+.junbotrom h1{
+	border: 3px solid black;
+}
+.navbar, .navbar-inverse{
+	padding: 0px;
+	border-radius: 0px;	
+}
+th,td{
+	text-align:center;
+}
+.box{
+	border:1px solid #eee;
+	padding: 10px;
+	box-shadow: 10px 15px 25px #8B8B8B;
+	border-radius: 0px;
+}
+footer{
+
+	background: #222222;
+	color: white;
+	padding: 10px;
+	bottom: 0;
+}

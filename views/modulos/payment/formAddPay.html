@@ -1,0 +1,51 @@
+<!-- Lanzamos metodo correspondiente para añadir datos ng-model {{ tabla.campo }} -->
+<div class="row">
+  <br><br><br>
+  <div class="col-md-4 col-md-offset-4">
+    <div class="box">
+      <div class="panel-heading"> 
+        <div class="form-group">
+          <label class="pull-right"><i class="fa fa-user"></i> Usuario: {{(usuarios | filter : {idUsuario: usuario.idUsuario})[0].nombre }} </label>
+        </div>
+         <h4>{{textButton}}</h4>
+      </div>
+
+      <form role="form">
+        <div class="form-group">
+          
+          <li class="list-group-item" ng-repeat="Pago in Pagos" ng-show="$last">
+            <h4>
+              <i class="fa fa-info-circle" aria-hidden="true"></i> Id: {{$index + 1}}
+            </h4>
+          </li>
+        
+          <input type="hidden" ng-model="Pago.idPago" value="{{Pagos.length}}" ng-init="Pago.idPago=Pagos.length" required />
+          <input type="hidden" ng-model="usuariosPago.idPago" value="{{Pagos.length}}" ng-init="usuariosPago.idPago=Pagos.length" required /> 
+        </div><!-- end id registro a guardar-->
+      
+      <input type="hidden" ng-model="usuariosPago.idUsuario" value="{{usuario.idUsuario}}" ng-init="usuariosPago.idUsuario=usuario.idUsuario" required />
+        
+      <div class="form-group">
+        <label for="exampleInput">Fecha: <span id ="fecha">{{CurrentDate | date:'dd/MM/yyyy'}}</span> </label>
+        <input type="hidden" ng-model="Pago.fecha" date-format="dd-MM-yyyy" value="{{CurrentDate | date:'dd/MM/yyyy'}}" ng-init="Pago.fecha= CurrentDate | date:'dd/MM/yyyy'" required />
+      </div>
+
+      <div class="form-group">
+        <label for="c2">Monto</label>
+        <div class="input-group"> 
+            <span class="input-group-addon">$</span>
+            <input ng-model="Pago.importe" type="number" min="0" step="0.01" data-number-to-fixed="2" data-number-stepfactor="100" class="form-control currency" required />
+        </div>
+      </div>
+      
+      <div class="divider-form"></div>
+
+      <p class="text-center">Acepto los<strong> Terminos & Condiciones</strong>.</p>
+      <p><a href="#/" class="button large-12 success"><i class="fa fa-home"></i> Volver al inicio</a></p>
+      <button type="submit" class="btn-block btn btn-lg btn-primary">{{ textButton }}</button>
+
+      </form><!-- end form -->
+
+    </div>
+  </div>
+</div>
